@@ -5,10 +5,12 @@ import java.awt.Image;
 
 import javax.swing.JComponent;
 
-public class images extends JComponent {
+public class RotateImage extends JComponent { // haven't begun this function yet
 	
 	private Image image;
-    public images(Image image) {
+	
+	
+    public RotateImage(Image image) {
         this.image = image;
     }
     @Override

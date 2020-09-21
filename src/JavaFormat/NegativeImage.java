@@ -12,9 +12,8 @@ import javax.swing.JComponent;
 
 public class NegativeImage extends JComponent {
 
-	static BufferedImage negativeImage;
+	private BufferedImage negativeImage;
 	
-//	
 
 	public Dimension getPreferredSize() {
 		if (negativeImage == null) {
@@ -22,25 +21,25 @@ public class NegativeImage extends JComponent {
 		} else {
 			return new Dimension(negativeImage.getWidth(null), negativeImage.getHeight(null));
 		}
-	}
+	} 
 
-	public NegativeImage() {
-
-		try {
-			negativeImage = ImageIO.read(new File("JavaFormatHaloReach.jpg"));
+	public BufferedImage NegativeImage(BufferedImage nImage) {
+		this.negativeImage = nImage;
+	/*	try {
+			nImage = ImageIO.read(new File("JavaFormatHaloReach.jpg"));
 		} catch (IOException i) {
 
-		}
-
+		}  */
 		// changes the color of every single pixel in the picture to it's negative form
-		for (int x = 0; x < negativeImage.getWidth(); x++) {
-			for (int y = 0; y < negativeImage.getHeight(); y++) {
-				int rgba = negativeImage.getRGB(x, y);
+		for (int x = 0; x < nImage.getWidth(); x++) {
+			for (int y = 0; y < nImage.getHeight(); y++) {
+				int rgba = nImage.getRGB(x, y);
 				Color col = new Color(rgba, true);
 				col = new Color(255 - col.getRed(), 255 - col.getGreen(), 255 - col.getBlue());
-				negativeImage.setRGB(x, y, col.getRGB());
+				nImage.setRGB(x, y, col.getRGB());
 			}
 		}
+		return nImage;
 	}
 
 	@Override

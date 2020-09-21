@@ -17,13 +17,14 @@ import javax.swing.JToolBar;
 import javax.swing.UIManager;
 import javax.swing.WindowConstants;
 
-public class JavaFormatInterface implements Runnable {
+public class JavaFormatInterface implements Runnable  {
 
 	private JFrame frame;
 	
 	 
 	@Override
 	public void run() {
+		
 		BufferedImage myImage = null;
 		try {                
 		        myImage = ImageIO.read(new File("JavaFormatHaloReach.jpg"));
@@ -32,22 +33,21 @@ public class JavaFormatInterface implements Runnable {
 		            // handle exception...
 		    	   
 		       }
-		
 		frame = new JFrame("JavaFormat picture changer");
 		
 		frame.setPreferredSize(new Dimension(600, 400));
 
 		
-		frame.setContentPane(new ImagePanel(myImage)); // background image
-
-		try {
-			createInterface(frame.getContentPane());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		frame.setContentPane(NegativeImage.NegativeImage(myImage));  // the modified image	
+		
+	//	frame.setContentPane(new ImagePanel(myImage)); // background image - this shall be fixed after NegativeImage is okay, 1 problem at a time.
+		
+		 
 	
-	//	frame.setContentPane(new NegativeImage()); the modified image, only here to check if it actually works.
+		createInterface(frame.getContentPane());
+	
+	
+		
  
 		frame.pack();
 		frame.setVisible(true);
@@ -55,7 +55,8 @@ public class JavaFormatInterface implements Runnable {
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	}
 
-	private void createInterface(Container c) throws IOException {
+
+	private void createInterface(Container c) { 
 
 		BorderLayout layout = new BorderLayout();
 		c.setLayout(layout);
@@ -71,13 +72,12 @@ public class JavaFormatInterface implements Runnable {
 		toolBar.setBackground(Color.GRAY);
 		
 
-		JButton BlacknWhite = new JButton("Black / White");
-		BlacknWhite.setBackground(Color.LIGHT_GRAY);
-		BlacknWhite.setForeground(Color.WHITE);
-		toolBar.add(BlacknWhite);
+		JButton rotate = new JButton("Rotate");
+		rotate.setBackground(Color.LIGHT_GRAY);
+		rotate.setForeground(Color.WHITE);
+		toolBar.add(rotate);
 		toolBar.addSeparator(new Dimension(50, 0));
 
-	//	BufferedImage nImage = ImageIO.read(new File("JavaFormatHaloReach.jpg")); 
 		JButton negativeButton = new JButton("Negative");
 		ButtonListener negative = new ButtonListener(null);
 		negativeButton.addActionListener(negative);

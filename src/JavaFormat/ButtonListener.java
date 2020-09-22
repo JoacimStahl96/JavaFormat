@@ -15,21 +15,20 @@ public class ButtonListener implements ActionListener {
 	private ImagePanel image;
 	
 	
-	
+	NegativeImage m = new NegativeImage(negativeImage);
     
 
 	public ButtonListener(NegativeImage negatImage, BufferedImage myImage) {
 		
-	 
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		  
-		
-	  NegativeImage m = new NegativeImage(negativeImage);
-	  image =  new ImagePanel(m.MakeNegativeImage());
 	  System.out.println("hii");
+	  
+	  image =  new ImagePanel(m.MakeNegativeImage());
+	  
 	  
     }	
 	

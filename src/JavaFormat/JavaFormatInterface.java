@@ -32,7 +32,7 @@ public class JavaFormatInterface implements Runnable  {
 		       } catch (IOException ex) {
 		            // handle exception...
 		    	  
-		       }  
+		       }   
 		frame = new JFrame("JavaFormat picture changer");
 		
 		frame.setPreferredSize(new Dimension(600, 400));
@@ -44,7 +44,7 @@ public class JavaFormatInterface implements Runnable  {
 		frame.setContentPane(new ImagePanel(myImage)); // background image - this shall be fixed after NegativeImage is okay, 1 problem at a time.
 		
 		createInterface(frame.getContentPane());
-	
+		
 		frame.pack();
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
@@ -52,7 +52,7 @@ public class JavaFormatInterface implements Runnable  {
 	}
 
 
-	private  void createInterface(Container c) { 
+	private  void createInterface(Container c) { // menu and buttons are created here and actionlistener is connected here as well.
 		
 		BufferedImage myImage = null;
 		try {                
@@ -64,7 +64,7 @@ public class JavaFormatInterface implements Runnable  {
 		
 		NegativeImage negatImage = new NegativeImage(myImage);
 		ImagePanel image = new ImagePanel ( myImage);
-		new ImagePanel(negatImage.MakeNegativeImage());
+		image = new ImagePanel(negatImage.MakeNegativeImage());
 
 		BorderLayout layout = new BorderLayout();
 		c.setLayout(layout);
@@ -109,13 +109,7 @@ public class JavaFormatInterface implements Runnable  {
 		toolBar.add(reset);
 	
 		c.add(toolBar, BorderLayout.NORTH);
-		
-		
-		
-		
-		c.add(negatImage);
-	 	c.add(image);
-		
+	//	c.add(negatImage);
 		
 	}
 

@@ -28,13 +28,13 @@ public class NegativeImage extends JComponent {
 	} 
 
 	public BufferedImage MakeNegativeImage() {
-	/*	try {                
-			negativeImage = ImageIO.read(new File("JavaFormatHaloReach.jpg"));
+		
+		try {                
+	        negativeImage = ImageIO.read(new File("JavaFormatHaloReach.jpg"));
 	          
 	       } catch (IOException ex) {
-	            // handle exception...
-	    	   
-             }  */
+	            // handle exception...	    	  
+	       }   	
 		// changes the color of every single pixel in the picture to it's negative form
 		for (int x = 0; x < negativeImage.getWidth(); x++) {
 			for (int y = 0; y < negativeImage.getHeight(); y++) {
@@ -45,6 +45,7 @@ public class NegativeImage extends JComponent {
 			}
 		}
 		return this.negativeImage;
+		
 	}
 
 	@Override

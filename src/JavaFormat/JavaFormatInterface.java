@@ -41,7 +41,7 @@ public class JavaFormatInterface implements Runnable  {
 	
 	//	frame.setContentPane(new ImagePanel(negImg.MakeNegativeImage()));  // the modified image	
 		
-	//	frame.setContentPane(new ImagePanel(myImage)); // background image - this shall be fixed after NegativeImage is okay, 1 problem at a time.
+		frame.setContentPane(new ImagePanel(myImage)); // background image - this shall be fixed after NegativeImage is okay, 1 problem at a time.
 		
 		createInterface(frame.getContentPane());
 	
@@ -110,8 +110,11 @@ public class JavaFormatInterface implements Runnable  {
 	
 		c.add(toolBar, BorderLayout.NORTH);
 		
-	//	c.add(negatImage);
-	// 	c.add(image);
+		
+		
+		
+		c.add(negatImage);
+	 	c.add(image);
 		
 		
 	}

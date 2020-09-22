@@ -31,7 +31,6 @@ public class ButtonListener implements ActionListener {
 	  image =  new ImagePanel(m.MakeNegativeImage());
 	  System.out.println("hii");
 	  
-    }
-	
+    }	
 	
 }

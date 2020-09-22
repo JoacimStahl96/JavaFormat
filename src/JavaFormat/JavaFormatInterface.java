@@ -25,30 +25,26 @@ public class JavaFormatInterface implements Runnable  {
 	@Override
 	public void run() {
 		
-		BufferedImage myImage = null;
+	/*	BufferedImage myImage = null;
 		try {                
 		        myImage = ImageIO.read(new File("JavaFormatHaloReach.jpg"));
 		          
 		       } catch (IOException ex) {
 		            // handle exception...
 		    	   
-		       }
+		       }  */
 		frame = new JFrame("JavaFormat picture changer");
 		
 		frame.setPreferredSize(new Dimension(600, 400));
 
-		
-		frame.setContentPane(NegativeImage.NegativeImage(myImage));  // the modified image	
-		
-	//	frame.setContentPane(new ImagePanel(myImage)); // background image - this shall be fixed after NegativeImage is okay, 1 problem at a time.
-		
-		 
+/*		NegativeImage negImg = new NegativeImage(myImage);
 	
+		frame.setContentPane(new ImagePanel(negImg.MakeNegativeImage()));  // the modified image	
+		
+		frame.setContentPane(new ImagePanel(myImage)); // background image - this shall be fixed after NegativeImage is okay, 1 problem at a time.
+	*/	
 		createInterface(frame.getContentPane());
 	
-	
-		
- 
 		frame.pack();
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
@@ -57,6 +53,19 @@ public class JavaFormatInterface implements Runnable  {
 
 
 	private void createInterface(Container c) { 
+		
+		BufferedImage myImage = null;
+		try {                
+		        myImage = ImageIO.read(new File("JavaFormatHaloReach.jpg"));
+		          
+		       } catch (IOException ex) {
+		            
+		    	   
+		       }
+		
+		NegativeImage negatImage = new NegativeImage(myImage);
+	//	ImagePanel image = new ImagePanel ( myImage);
+		new ImagePanel(negatImage.MakeNegativeImage());
 
 		BorderLayout layout = new BorderLayout();
 		c.setLayout(layout);
@@ -77,9 +86,10 @@ public class JavaFormatInterface implements Runnable  {
 		rotate.setForeground(Color.WHITE);
 		toolBar.add(rotate);
 		toolBar.addSeparator(new Dimension(50, 0));
-
+		
+		
 		JButton negativeButton = new JButton("Negative");
-		ButtonListener negative = new ButtonListener(null);
+		ButtonListener negative = new ButtonListener(negatImage, myImage);
 		negativeButton.addActionListener(negative);
 		
 		negativeButton.setBackground(Color.LIGHT_GRAY);
@@ -99,6 +109,10 @@ public class JavaFormatInterface implements Runnable  {
 		toolBar.add(reset);
 	
 		c.add(toolBar, BorderLayout.NORTH);
+	//	c.add(negatImage);
+	// 	c.add(image);
+		
+		
 	}
 
 	public JFrame getjFrame() {

@@ -25,24 +25,24 @@ public class JavaFormatInterface implements Runnable  {
 	@Override
 	public void run() {
 		
-	/*	BufferedImage myImage = null;
+		BufferedImage myImage = null;
 		try {                
 		        myImage = ImageIO.read(new File("JavaFormatHaloReach.jpg"));
 		          
 		       } catch (IOException ex) {
 		            // handle exception...
-		    	   
-		       }  */
+		    	  
+		       }  
 		frame = new JFrame("JavaFormat picture changer");
 		
 		frame.setPreferredSize(new Dimension(600, 400));
 
-/*		NegativeImage negImg = new NegativeImage(myImage);
+		NegativeImage negImg = new NegativeImage(myImage);
 	
-		frame.setContentPane(new ImagePanel(negImg.MakeNegativeImage()));  // the modified image	
+	//	frame.setContentPane(new ImagePanel(negImg.MakeNegativeImage()));  // the modified image	
 		
-		frame.setContentPane(new ImagePanel(myImage)); // background image - this shall be fixed after NegativeImage is okay, 1 problem at a time.
-	*/	
+	//	frame.setContentPane(new ImagePanel(myImage)); // background image - this shall be fixed after NegativeImage is okay, 1 problem at a time.
+		
 		createInterface(frame.getContentPane());
 	
 		frame.pack();
@@ -52,19 +52,18 @@ public class JavaFormatInterface implements Runnable  {
 	}
 
 
-	private void createInterface(Container c) { 
+	private  void createInterface(Container c) { 
 		
 		BufferedImage myImage = null;
 		try {                
 		        myImage = ImageIO.read(new File("JavaFormatHaloReach.jpg"));
 		          
 		       } catch (IOException ex) {
-		            
-		    	   
+		              
 		       }
 		
 		NegativeImage negatImage = new NegativeImage(myImage);
-	//	ImagePanel image = new ImagePanel ( myImage);
+		ImagePanel image = new ImagePanel ( myImage);
 		new ImagePanel(negatImage.MakeNegativeImage());
 
 		BorderLayout layout = new BorderLayout();
@@ -96,6 +95,7 @@ public class JavaFormatInterface implements Runnable  {
 		negativeButton.setForeground(Color.WHITE);
 		toolBar.add(negativeButton);
 		toolBar.addSeparator(new Dimension(50, 0));
+		
 
 		JButton changeSize = new JButton("Change size ");
 		changeSize.setBackground(Color.LIGHT_GRAY);
@@ -109,6 +109,7 @@ public class JavaFormatInterface implements Runnable  {
 		toolBar.add(reset);
 	
 		c.add(toolBar, BorderLayout.NORTH);
+		
 	//	c.add(negatImage);
 	// 	c.add(image);
 		

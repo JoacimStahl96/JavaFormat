@@ -1,5 +1,6 @@
 package JavaFormat;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -10,7 +11,7 @@ import javax.imageio.ImageIO;
 
 public class ButtonListener implements ActionListener {
 	
-	private BufferedImage nImage;
+	private BufferedImage negativeImage;
 	private ImagePanel image;
 	
 	
@@ -19,24 +20,18 @@ public class ButtonListener implements ActionListener {
 
 	public ButtonListener(NegativeImage negatImage, BufferedImage myImage) {
 		
-		
+	 
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		  
 		
-/*		try {                
-	        nImage = ImageIO.read(new File("JavaFormatHaloReach.jpg"));
-	          
-	       } catch (IOException ex) {
-	            // handle exception...
-	    	   
-             }  
-	  NegativeImage m = new NegativeImage(nImage);
-	  image =  new ImagePanel(m.MakeNegativeImage());	
-	  */
-	 
-
-
+	  NegativeImage m = new NegativeImage(negativeImage);
+	  image =  new ImagePanel(m.MakeNegativeImage());
+	  System.out.println("hii");
+	  
     }
+	
+	
 }
